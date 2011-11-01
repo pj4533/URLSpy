@@ -37,9 +37,16 @@
                 for (NSString* thisStr in [lineStr componentsSeparatedByString:@" "]) {
                     if (nextStr) {
                         NSString* server = [dict objectForKey:@"server"];
-                        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[server stringByAppendingFormat:@"%@\n", thisStr]];
                         
-                        NSRange range = NSMakeRange(0, [string length]);
+                        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+                        [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd' 'HH':'mm':'ss"];
+                        NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+                        
+                        NSString* outputString = [NSString stringWithFormat:@"[%@] %@%@\n", dateString, server, thisStr];
+                        
+                        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:outputString];
+                        
+                        NSRange range = NSMakeRange([dateString length] + 3, [string length] - ([dateString length]+3));
                         
                         [string beginEditing];
                         [string addAttribute:NSLinkAttributeName value:string range:range];
@@ -91,11 +98,12 @@
 
 - (BOOL)textView:(NSTextView*)textView clickedOnLink:(id)link atIndex:(NSUInteger)charIndex {
     BOOL success = NO;
-    
+        
     if ([link isKindOfClass: [NSMutableAttributedString class]])
     {
         NSString *trimmedString = [[link mutableString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        success = [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:trimmedString]];
+        NSString *linkStrOnly = [[trimmedString componentsSeparatedByString:@" "] lastObject]; 
+        success = [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:linkStrOnly]];
     }
     
     return success;
