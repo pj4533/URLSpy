@@ -21,6 +21,8 @@
     [storage beginEditing];
     [storage appendAttributedString:string];
     [storage endEditing];
+    
+    [textView scrollRangeToVisible: NSMakeRange ([[textView string] length], 0)];
 }
 
 - (void) tailFileWithPath:(NSDictionary*) dict {
