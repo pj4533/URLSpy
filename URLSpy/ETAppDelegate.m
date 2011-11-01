@@ -2,7 +2,7 @@
 //  ETAppDelegate.m
 //  URLSpy
 //
-//  Created by PJ Gray on 10/31/11.
+//  Created by PJ Gray on 10/31/11
 //  Copyright (c) 2011 EverTrue. All rights reserved.
 //
 
