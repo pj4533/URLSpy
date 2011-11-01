@@ -8,9 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ETAppDelegate : NSObject <NSApplicationDelegate, NSTextViewDelegate> {
-    NSString* lineStr;
-    NSString* serverPrefix;
+@interface ETAppDelegate : NSObject <NSApplicationDelegate, NSTextViewDelegate> {    
+    NSMutableArray* watcherThreads;
 }
 
 @property (assign) IBOutlet NSWindow *window;
