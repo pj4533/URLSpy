@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ETAppDelegate : NSObject <NSApplicationDelegate>
+@interface ETAppDelegate : NSObject <NSApplicationDelegate, NSTextViewDelegate> {
+    NSString* lineStr;
+    NSString* serverPrefix;
+}
 
 @property (assign) IBOutlet NSWindow *window;
+@property (strong) IBOutlet NSTextView *textView;
+
 
 @end
