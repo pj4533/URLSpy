@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2B0E66146011A0002151B6 /* urlspy.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0A2B0E65146011A0002151B6 /* urlspy.icns */; };
 		0A758355145F7CBF00F7BBC7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A758354145F7CBF00F7BBC7 /* Cocoa.framework */; };
 		0A75835F145F7CBF00F7BBC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A75835D145F7CBF00F7BBC7 /* InfoPlist.strings */; };
 		0A758361145F7CBF00F7BBC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A758360145F7CBF00F7BBC7 /* main.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A2B0E65146011A0002151B6 /* urlspy.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = urlspy.icns; sourceTree = "<group>"; };
 		0A758350145F7CBF00F7BBC7 /* URLSpy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLSpy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A758354145F7CBF00F7BBC7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0A758357145F7CBF00F7BBC7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -98,6 +100,7 @@
 		0A75835B145F7CBF00F7BBC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A2B0E65146011A0002151B6 /* urlspy.icns */,
 				0A75835C145F7CBF00F7BBC7 /* URLSpy-Info.plist */,
 				0A75835D145F7CBF00F7BBC7 /* InfoPlist.strings */,
 				0A758360145F7CBF00F7BBC7 /* main.m */,
@@ -161,6 +164,7 @@
 				0A75835F145F7CBF00F7BBC7 /* InfoPlist.strings in Resources */,
 				0A758365145F7CBF00F7BBC7 /* Credits.rtf in Resources */,
 				0A75836B145F7CBF00F7BBC7 /* MainMenu.xib in Resources */,
+				0A2B0E66146011A0002151B6 /* urlspy.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +299,7 @@
 				0A758370145F7CBF00F7BBC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
