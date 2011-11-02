@@ -13,6 +13,8 @@
 
 @synthesize window = _window;
 @synthesize textView;
+@synthesize logsPanel;
+@synthesize logsTableView;
 
 
 - (void) addStringToTextView:(NSMutableAttributedString*) string {
@@ -86,7 +88,10 @@
     
     NSThread* newThread = [[NSThread alloc] initWithTarget:self selector:@selector(tailFileWithPath:) object:dict];
     [newThread start];
-    [watcherThreads addObject:newThread];
+    NSDictionary* threadDict = [NSDictionary dictionaryWithObjectsAndKeys:dict, @"dict",
+                                newThread, @"thread", nil];
+    
+    [watcherThreads addObject:threadDict];
 }
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -109,6 +114,40 @@
     }
     
     return success;
+}
+
+// logsPanel is a NSPanel
+- (IBAction)clickedLogs:(id)sender {
+    [NSApp beginSheet:logsPanel
+       modalForWindow:self.window
+        modalDelegate:self
+       didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) 
+          contextInfo:nil];
+}
+
+- (IBAction)clickedDone:(id)sender {
+    [NSApp endSheet:logsPanel];
+}
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    [sheet orderOut:self];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return watcherThreads.count;
+}
+
+- (NSView *)tableView:(NSTableView *)tableView
+   viewForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+    
+    NSTableCellView *result = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    
+    result.textField.stringValue = [[[watcherThreads objectAtIndex:row] objectForKey:@"dict"] objectForKey:[tableColumn identifier]];    
+    
+    return result;
+    
 }
 
 @end

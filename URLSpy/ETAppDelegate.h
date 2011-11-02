@@ -14,6 +14,11 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSTextView *textView;
+@property (strong) IBOutlet NSPanel *logsPanel;
+@property (strong) IBOutlet NSTableView *logsTableView;
+
+- (IBAction)clickedLogs:(id)sender;
+- (IBAction)clickedDone:(id)sender;
 
 
 @end
