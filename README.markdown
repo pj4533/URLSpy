@@ -1,8 +1,8 @@
 URLSpy
 ======
 
-URLSpy is meant as a tool similar to 'tail -f'.  Rather than just watching access_logs, URLSpy parses then and creates clickable links out of any GET requests.
+URLSpy is meant as a tool similar to 'tail -f'.  Rather than just watching access_logs, URLSpy parses them and creates clickable links out of any GET requests.
 
-Useful for mobile testing on local servers.
+Useful for checking out mobile pages in desktop browsers without cutting/pasting.
 
-More information to come in a blog post.
+Big thanks to [mdippery](https://github.com/mdippery mdippery) for his awesome [FileTailer](https://gist.github.com/777080 "FileTailer") gist.  I used it as the basis for URLSpy.
